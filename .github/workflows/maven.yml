@@ -43,8 +43,10 @@ jobs:
       working-directory: ./backend
       run: mvn test
 
-    - name: Mostrar variables de entorno del job
-      run: printenv
+    - name: obtener variable de entorno
+      env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_USER_TO: ${{ secrets.EMAIL_USER_TO }}
 
     # 👇 Paso que se ejecuta solo si falla el build
     - name: Enviar correo si falla el build
@@ -52,7 +54,7 @@ jobs:
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
-        server_port: 465
+        server_port: 587
         username: u20191176324@usco.edu.co
         password: ${{ secrets.EMAIL_PASS }}
         subject: "🚨 Error en GitHub Actions - Calculadora"
