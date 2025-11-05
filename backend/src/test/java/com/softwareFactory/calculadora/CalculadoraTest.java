@@ -12,7 +12,7 @@ public class CalculadoraTest {
     }
     @Test
     void testSumar() {
-        double resultado = calculadora.sumar(5, 4);
+        double resultado = calculadora.sumar(5, 3);
         assertEquals(8.0, resultado, 0.0001, "La suma debe ser 8.0");
     }
     @Test
@@ -33,7 +33,7 @@ public class CalculadoraTest {
     @Test
     void testDividirPorCeroDebeLanzarExcepcion() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            calculadora.dividir(5, 0);
+            calculadora.dividir(5, 1);
         });
         assertEquals("No se puede dividir por cero.", exception.getMessage());
     }
