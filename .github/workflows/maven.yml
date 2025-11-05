@@ -34,6 +34,12 @@ jobs:
     - name: Ejecutar pruebas
       working-directory: ./backend
       run: mvn test
+      
+    - name: Mostrar los primeros 3 caracteres del usuario (enmascarado)
+      run: |
+        echo "EMAIL_USER_TO empieza con: ${EMAIL_USER_TO:0:3}***"
+      env:
+        EMAIL_USER_TO: ${{ secrets.EMAIL_USER_TO }}  
 
     # 👇 Paso que se ejecuta solo si falla el build
     - name: Enviar correo si falla el build
