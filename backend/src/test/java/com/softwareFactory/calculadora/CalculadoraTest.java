@@ -1,4 +1,4 @@
-import backend.docs.Calculadora;
+package com.softwareFactory.calculadora;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ public class CalculadoraTest {
     }
     @Test
     void testSumar() {
-        double resultado = calculadora.sumar(5, 3);
+        double resultado = calculadora.sumar(5, 4);
         assertEquals(8.0, resultado, 0.0001, "La suma debe ser 8.0");
     }
     @Test
