@@ -46,5 +46,5 @@ jobs:
         password: ${{ secrets.EMAIL_PASS }}
         subject: "🚨 Error en GitHub Actions - Calculadora"
         body: "El pipeline de CI ha fallado. Revisa los logs en GitHub Actions."
-        to: ${{ secrets.EMAIL_TO }}
+        to: ${{ secrets.EMAIL_USER_TO }}
         from: GitHub Actions <${{ secrets.EMAIL_USER }}>   
