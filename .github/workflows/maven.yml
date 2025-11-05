@@ -31,15 +31,20 @@ jobs:
       working-directory: ./backend   # 👈 cambia esto según tu estructura
       run: mvn -B package --file pom.xml
 
-    - name: Ejecutar pruebas
-      working-directory: ./backend
-      run: mvn test
-      
+
     - name: Mostrar los primeros 3 caracteres del usuario (enmascarado)
       run: |
         echo "EMAIL_USER_TO empieza con: ${EMAIL_USER_TO:0:3}***"
       env:
-        EMAIL_USER_TO: ${{ secrets.EMAIL_USER_TO }}  
+        EMAIL_USER_TO: ${{ secrets.EMAIL_USER_TO }}    
+
+
+    - name: Ejecutar pruebas
+      working-directory: ./backend
+      run: mvn test
+
+    - name: Mostrar variables de entorno del job
+      run: printenv
 
     # 👇 Paso que se ejecuta solo si falla el build
     - name: Enviar correo si falla el build
