@@ -17,7 +17,7 @@ public class CalculadoraTest {
     }
     @Test
     void testRestar() {
-        double resultado = calculadora.restar(10, 5);
+        double resultado = calculadora.restar(10, 4);
         assertEquals(6.0, resultado, 0.0001, "La resta debe ser 6.0");
     }
     @Test
